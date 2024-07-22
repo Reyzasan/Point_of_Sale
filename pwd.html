@@ -21,13 +21,18 @@
     <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="assesment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   </head>
-  <body style="position: fixed;">
+  <body>
     <section>
         <nav class="navbar" style="background-color: rgb(66, 97, 236);">
             <div class="container-fluid">
               <a class="navbar-brand" href="#" style="color: aliceblue; font-weight: bold;">
                 Starbhak Mart
+              </a>
+              <a href="awal.html">
+                <i class='bx bx-home bx-md' style="color: aliceblue;"></i>
               </a>
             </div>
         </nav>
@@ -35,16 +40,16 @@
     <div class="container-fluid">
       <div class="row">
             <div class="col-md-3" style="height: 510px;" id="content">
-                <select name="" id="" style="width: 100%; height: 40px; margin: 5px;" class="btn btn-primary">
+                <select name="Pilih" id="Pilih" style="width: 100%; height: 40px; margin: 5px;" class="btn btn-primary">
                   <option value="">Take Away</option>
                   <option value="">Dine In</option>
                 </select>
-                <select name="" id="" style="width: 100%; height: 40px; margin: 5px;" class="btn btn-primary">
+                <select name="Kasir" id="Kasir" style="width: 100%; height: 40px; margin: 5px;" class="btn btn-primary">
                   <option value="">Romi Wijaya</option>
                   <option value="">Dian Wiharjo</option>
                 </select>
-                <div class="card" style="width: 100%; height: 83%; margin: 5px; background-color: rgb(241, 255, 212);">
-                  <div style="max-height: 490px; overflow-y: scroll;">
+                <div class="card" style="width: 100%; height: 68%; margin: 5px; background-color: rgb(241, 255, 212);">
+                  <div style="max-height: 490px; overflow-y: scroll;  " >
                     <div class="d-flex justify-content-between">
                       <h5 style="margin: 5px; align-items: center;">List Order :</h5>
                     </div>
@@ -52,7 +57,7 @@
                     <div class="listorder"></div>
                   </div>
                 </div>
-                <div class="card" style="width: 100%; height: 25%; margin: 5PX; background-color: white;">
+                <div class="card" style="width: 100%; height: 25%; margin: 5PX; background-color: white;" id="rincian">
                   <div class="column">
                     <div class="column">
                       <div class="row-md-3">
@@ -68,9 +73,9 @@
                         </li>
                       </div>
                       <div class="row-md-3">
-                        <li class="d-flex justify-content-between" style="font-weight: bold; background-color: rgb(134, 134, 245);">
-                          <p>Total Amount :</p>
-                          <h6 style="margin-right: 5%;" id="total">Rp.0</h6>
+                        <li class="d-flex justify-content-between" style="font-weight: bold; background-color: rgb(134, 134, 245);border-radius: 10px;">
+                          <p style="margin-top: 5px;">Total Amount :</p>
+                          <h6 style="margin-right: 5%; margin-top: 5px;" id="total" >Rp.0</h6>
                         </li>
                       </div>
                     </div>
@@ -80,138 +85,138 @@
           <div class="col-md-9" style="height: 540px;" id="content">
             <div class="card" style="margin-top: 5px;">
               <div class="d-flex justify-content-between" style="font-weight: bold;">
-                <p style="margin: 10px; font-size: large;">Item List</p>
+                <p style="margin: 20px; font-size: large;">Item List</p>
                 <div class="d-flex" style="margin: 5px;">
-                  <i class='bx bx-search bx-md'></i>
-                  <i class='bx bx-dots-vertical-rounded bx-md' ></i>
-                  <i class='bx bx-transfer-alt bx-rotate-90 bx-md '></i>
+                  <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchbar" onkeyup="search_barang()" style="padding: 10px; margin: 10px;">
+                  </form>
+                  <i class='bx bx-dots-vertical-rounded bx-md' style="margin-top: 15px;"></i>
+                  <i class='bx bx-transfer-alt bx-rotate-90 bx-md ' style="margin-bottom: 2px; margin-right: 10px;"></i>
                 </div>
               </div>            
             </div>
             <div class="card">
               <div style="max-height: 490px; overflow-y: scroll;">
-                <div class="row" style="padding-left: 10px; padding-right: 10px; height: 490px;">
+                <div class="row" style="padding-left: 10px; padding-right: 10px; height: 400px;">
+                  <div id="produkTidakAda" style="display: none; text-align: center; margin-top: 190px; font-weight: bold; font-size: large;">
+                    <p>Produk tidak ada</p>
+                </div>                
                   <div class="col-md-2" style="margin-top: 5px;">
-                        <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Burger Double Beff', 1, 45000)">
-                        <img src="projek_assesment/burger_double_beef.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                        <div class="row-md-4">
-                          <h6 class="card-title">Burger Double Beef</h6>
-                        </div>
-                        <div class="row-md-2">
-                          <p class="card-text" style="font-size: small;">Rp.45.000,00</p>
-                        </div>
-                      </div>
-                  </div>
-
-                  <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Burger Double Cheese', 1, 35000)">
-                      <img src="projek_assesment/burger_double_cheese.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                        <h6 class="card-title">Burger Double Cheese</h6>
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;;" onclick="tambahpesanan('Burger Double Beef', 1, 35000)">
+                      <img src="projek_assesment/burger_double_beef.jpg" class="card-img" alt="..." style="border-radius: 10%;">
+                        <h6 class="card-title1">Burger Double Beef</h6>
                         <p class="card-text" style="font-size: small;">Rp.35.000,00</p> 
                       </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Burger Original', 1, 20000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Burger Double Cheese', 1, 35000)">
+                      <img src="projek_assesment/burger_double_cheese.jpg" class="card-img" alt="..." style="border-radius: 10%;">
+                        <h6 class="card-title1">Burger Double Cheese</h6>
+                        <p class="card-text" style="font-size: small;">Rp.35.000,00</p> 
+                      </div>
+                  </div>
+                  <div class="col-md-2" style="margin-top: 5px;">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Burger Original', 1, 20000)">
                       <img src="projek_assesment/burger_original.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Burger Original Starmart</h6>
+                    <h6 class="card-title1">Burger Original Starmart</h6>
                     <p class="card-text" style="font-size: small;">Rp.20.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Caramel Machiato', 1, 18000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Caramel Machiato', 1, 18000)">
                       <img src="projek_assesment/caramel_machiato.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Caramel Machiato Starmart</h6>
+                    <h6 class="card-title1">Caramel Machiato</h6>
                     <p class="card-text" style="font-size: small;">Rp.18.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Ham Cheese Sandwich', 1, 20000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Ham Cheese Sandwich', 1, 20000)">
                       <img src="projek_assesment/ham_cheese_sandwich.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Ham Cheese Sandwich</h6>
+                    <h6 class="card-title1">Ham Cheese Sandwich</h6>
                     <p class="card-text" style="font-size: small;">Rp.20.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Maple Glaze Ham', 1, 25000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Maple Glaze Ham', 1, 25000)">
                       <img src="projek_assesment/maple_glaze_ham.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Maple Glaze Ham</h6>
+                    <h6 class="card-title1">Maple Glaze Ham</h6>
                     <p class="card-text" style="font-size: small;">Rp.25.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Milk Shake Creamy Cookies', 1, 15000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Milk Shake Creamy Cookies', 1, 15000)">
                       <img src="projek_assesment/milk_shake_creamy_cookies.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Milk Shake Creamy Cookies</h6>
+                    <h6 class="card-title1">Milk Shake Creamy Cookies</h6>
                     <p class="card-text" style="font-size: small;">Rp.15.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Lime Water Starmart', 1, 8000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Lime Water Starmart', 1, 8000)">
                       <img src="projek_assesment/lime.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Lime Water Starmart</h6>
+                    <h6 class="card-title1">Lime Water Starmart</h6>
                     <p class="card-text" style="font-size: small;">Rp.8.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Milk Shake Biscoof', 1, 17000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Milk Shake Biscoof Starmart', 1, 17000)">
                       <img src="projek_assesment/regal.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Milk Shake Biscoof</h6>
+                    <h6 class="card-title1">Milk Shake Biscoof Starmart</h6>
                     <p class="card-text" style="font-size: small;">Rp.17.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Galaxy Water Starmart', 1, 19000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Galaxy Water Starmart', 1, 19000)">
                       <img src="projek_assesment/galaxy.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Galaxy Water Starmart</h6>
+                    <h6 class="card-title1">Galaxy Water Starmart</h6>
                     <p class="card-text" style="font-size: small;">Rp.19.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Unicorn Milk Shake', 1, 21000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Unicorn Milk Shake Starmart', 1, 21000)">
                       <img src="projek_assesment/unicorn.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Unicorn Milk Shake</h6>
+                    <h6 class="card-title1">Unicorn Milk Shake Starmart</h6>
                     <p class="card-text" style="font-size: small;">Rp.21.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('GBlackberry Ice Cream', 1, 9000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('GBlackberry Ice Cream', 1, 9000)">
                       <img src="projek_assesment/icecreamblac.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Blackberry Ice Cream</h6>
+                    <h6 class="card-title1">Blackberry Ice Cream</h6>
                     <p class="card-text" style="font-size: small;">Rp.9.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Durian Pancake', 1, 14000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Durian Pancake', 1, 14000)">
                       <img src="projek_assesment/durian.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Durian Pancake Starmart</h6>
+                    <h6 class="card-title1">Durian Pancake Starmart</h6>
                     <p class="card-text" style="font-size: small;">Rp.14.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Strawberry Cheese', 1, 12000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Strawberry Cheese', 1, 12000)">
                       <img src="projek_assesment/srawchee1.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Strawberry Cheese</h6>
+                    <h6 class="card-title1">Strawberry Cheese</h6>
                     <p class="card-text" style="font-size: small;">Rp.12.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Banana Cake', 1, 16000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Banana Cake Starmart', 1, 16000)">
                       <img src="projek_assesment/bananacake.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Banana Cake</h6>
+                    <h6 class="card-title1">Banana Cake Starmart</h6>
                     <p class="card-text" style="font-size: small;">Rp.16.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Blackberry Water', 1, 15000)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Blackberry Water', 1, 15000)">
                       <img src="projek_assesment/fresh1.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Blackberry Water</h6>
+                    <h6 class="card-title1">Blackberry Water</h6>
                     <p class="card-text" style="font-size: small;">Rp.15.000,00</p> 
                     </div>
                   </div>
                   <div class="col-md-2" style="margin-top: 5px;">
-                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%; height: 100%;" onclick="tambahpesanan('Matcha Latte', 1, 11500)">
+                    <div class="card-body p-1" style="border-radius: 10%; border: rgb(175, 159, 159) solid 1px; width: 100%;" onclick="tambahpesanan('Matcha Latte Starmart', 1, 11500)">
                       <img src="projek_assesment/matcha.jpg" class="card-img" alt="..." style="border-radius: 10%;">
-                    <h6 class="card-title">Matcha Latte</h6>
+                    <h6 class="card-title1">Matcha Latte Starmart</h6>
                     <p class="card-text" style="font-size: small;">Rp.11.5.000,00</p> 
                     </div>
                   </div>
@@ -219,13 +224,11 @@
               </div>
           </div>
           <div class="submit" style="height: 102px;">
-              <div class="card" style="background-color: rgb(134, 134, 245); width: 20%; height: 70px; align-items: center; margin-left: 79%; margin-top: 15px;">
-                <button onclick="print()" class="btn btn" style="width: 100px; height: 20px;">
+              <div class="card" style="background-color: rgb(134, 134, 245); width: 20%; height: 71px; align-items: center; margin-left: 79%; margin-top: 15px;">
+                <button type="button" onclick="print()" class="btn btn" style="width: 100px; height: 20px;">
                   <i class='bx bx-printer bx-md'></i>
                   <p style="color: aliceblue; font-weight: bold;">Payment</p>
-                  <br>
-                  <p>CTRL + P</p>
-                </button>
+              </button>              
               </div>
           </div>
         </div>
@@ -235,7 +238,7 @@
     </section>
     <section></section>
   </body>
-  <!-- <script src="script.js"></script> -->
+  <script src="search.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
